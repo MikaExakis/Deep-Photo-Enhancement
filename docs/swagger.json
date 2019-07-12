@@ -1,0 +1,105 @@
+{
+    "components": {
+        "schemas": {
+            "Body": {
+                "properties": {
+                    "phone": {
+                        "description": "phone from where the picture was taken could be blackberry, iphone or sony",
+                        "example": "iphone",
+                        "type": "string"
+                    },
+                    "resolution": {
+                        "description": "resolution of the resulting photo could be orig, high, medium, small, tiny",
+                        "example": "orig",
+                        "type": "string"
+                    },
+                    "url": {
+                        "description": "url of the photo to process",
+                        "example": "https://i.stack.imgur.com/aeY45.jpg",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "phone",
+                    "resolution"
+                ],
+                "type": "object"
+            },
+            "Response": {
+                "properties": {
+                    "image": {
+                        "description": "",
+                        "example": "",
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "securitySchemes": {
+            "apikey": {
+                "in": "header",
+                "name": "X-OVH-Api-Key",
+                "type": "apiKey"
+            }
+        }
+    },
+    "info": {
+        "description": "This API will enhance your Iphone, blackberry of sony photos",
+        "title": "Deep Photo Enhancement",
+        "version": "1.0.0"
+    },
+    "openapi": "3.0.1",
+    "paths": {
+        "/process": {
+            "post": {
+                "description": "This API will enhance your Iphone, blackberry of sony photos",
+                "operationId": "process",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Body"
+                            }
+                        }
+                    },
+                    "description": "Enhance your phone photos",
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "$ref": "#/components/schemas/Response"
+                                    },
+                                    "type": "array"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "apikey": []
+                    }
+                ],
+                "summary": "Enhance your phone photos",
+                "tags": [
+                    "process"
+                ]
+            }
+        }
+    },
+    "tags": [
+        {
+            "description": "This API will enhance your Iphone, blackberry of sony photos",
+            "name": "process"
+        }
+    ]
+}
