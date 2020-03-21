@@ -107,7 +107,7 @@ if __name__ == '__main__':
     # get all available image resolutions
     res_sizes = utils.get_resolutions()
 
-    url_prefix = 'http://pretrained-models.auth-18b62333a540498882ff446ab602528b.storage.gra5.cloud.ovh.net/image/deep-photo-enhancement/'
+    url_prefix = 'http://pretrained-models.auth-18b62333a540498882ff446ab602528b.storage.gra.cloud.ovh.net/image/deep-photo-enhancement/'
 
     for i in ["blackberry_orig.data-00000-of-00001", "blackberry_orig.index", "iphone_orig.data-00000-of-00001", "iphone_orig.index", "sony_orig.data-00000-of-00001", "sony_orig.index"]:
         get_model_bin(url_prefix + i , "models_orig/" + i)
